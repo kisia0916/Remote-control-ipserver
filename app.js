@@ -20,6 +20,6 @@ app.get("/set",(req,res)=>{
     fs.writeFileSync("./serverip.txt",writeData)
     return res.status(200).json("done")
 })
-app.listen(3000,()=>{
+app.listen(process.env.PORT||3000,()=>{
     console.log("server run")
 })
