@@ -11,7 +11,11 @@ app.use(body_pase.urlencoded({ extended: true }));//////
 app.use(express.static(path.join(__dirname, "js")));
 
 app.get("/",(req,res)=>{
-    return res.status(200).json(ipfile)
+    try{
+        return res.status(200).json(ipfile)
+    }catch{
+        return res.status(200).json("error")
+    }
 })
 app.get("/set",(req,res)=>{
     let host = req.body.hostname
